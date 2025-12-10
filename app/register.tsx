@@ -1,13 +1,15 @@
+// En esta pantalla implemento el registro de usuario.
+// Aquí llamo al backend para crear la cuenta y guardar el token.
 import { router } from "expo-router";
 import React, { useState } from "react";
 import {
-        KeyboardAvoidingView,
-        Platform,
-        ScrollView,
-        Text,
-        TextInput,
-        TouchableOpacity,
-        View,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "../components/CustomButton";
@@ -55,9 +57,16 @@ export default function RegisterScreen() {
 
       router.replace("/(tabs)/home");
     } catch (error: any) {
+      // Aquí intento mostrar siempre el mensaje real que venga del backend,
+      // para entender mejor por qué falló el registro.
+      const backendData = error?.response?.data;
       const msg =
-        error?.response?.data?.error ||
+        backendData?.error ||
+        backendData?.message ||
+        backendData?.data?.message ||
+        (backendData ? JSON.stringify(backendData) : undefined) ||
         "No se pudo registrar. Intenta con otro email o más tarde.";
+
       setErrorMessage(msg);
     } finally {
       setIsLoading(false);

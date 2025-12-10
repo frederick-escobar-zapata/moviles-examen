@@ -1,3 +1,5 @@
+// En este componente muestro de forma clara los mensajes de error
+// que quiero enseñar al usuario debajo de los formularios.
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 

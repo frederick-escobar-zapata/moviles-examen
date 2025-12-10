@@ -1,3 +1,5 @@
+// En esta pantalla muestro los datos básicos del usuario logueado
+// y le doy la opción de cerrar sesión y volver al login.
 import { router } from 'expo-router';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';

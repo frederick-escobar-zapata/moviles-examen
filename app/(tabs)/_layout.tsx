@@ -1,4 +1,5 @@
-// Este archivo define la navegación por pestañas (tabs) de la aplicación.
+// En este archivo defino la navegación por pestañas de mi app
+// y además protejo estas pantallas para que solo entren usuarios logueados.
 import { Ionicons } from '@expo/vector-icons';
 import { Redirect, Tabs } from 'expo-router';
 import React from 'react';

@@ -1,3 +1,5 @@
+// En este componente encapsulo un botón de icono usando Ionicons
+// para reutilizarlo en lugares como el input de tareas.
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { StyleProp, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';

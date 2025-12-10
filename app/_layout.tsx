@@ -1,5 +1,5 @@
 // En este archivo defino la estructura principal de navegación con un Stack.
-// Aquí registro la pantalla de login (index) y el grupo de tabs (home y perfil).
+// Aquí registro la pantalla de login (index), el registro y el grupo de tabs.
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';

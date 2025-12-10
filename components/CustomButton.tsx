@@ -1,3 +1,5 @@
+// En este componente defino un botón reutilizable para poder
+// mantener el mismo estilo de acción principal en distintas pantallas.
 import React from "react";
 import { StyleProp, StyleSheet, Text, TouchableOpacity, ViewStyle } from "react-native";
 

@@ -1,4 +1,5 @@
-// Este componente representa una tarea individual dentro de la lista.
+// En este componente represento visualmente una tarea individual de la lista.
+// Aquí marco la tarea como completada, la puedo eliminar, ver su foto o su ubicación.
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Task } from "../constants/types";

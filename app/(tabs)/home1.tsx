@@ -1,4 +1,5 @@
-// En esta pantalla muestro el saludo al usuario logueado y la lista de tareas.
+// En esta versión alternativa de Home muestro el saludo al usuario logueado
+// y manejo la lista de tareas con almacenamiento local (versión anterior).
 import TaskInput from '@/components/tasks/TaskInput';
 import TaskList from '@/components/tasks/TaskList';
 import Title from '@/components/ui/title';

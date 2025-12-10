@@ -1,4 +1,5 @@
-// Pantalla Home con CRUD completo de todos (API Hono + fotos + ubicación)
+// En esta pantalla Home implemento el CRUD completo de mis tareas
+// totalmente conectado al backend (API Hono), usando fotos y ubicación.
 import TaskInput from '@/components/tasks/TaskInput';
 import TaskList from '@/components/tasks/TaskList';
 import Title from '@/components/ui/title';

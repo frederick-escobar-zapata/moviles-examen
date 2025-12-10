@@ -1,3 +1,5 @@
+// En esta pantalla implemento el login principal de mi app.
+// Aquí me conecto al backend, guardo el token y redirijo a las tabs.
 import { router } from "expo-router";
 import React, { useState } from "react";
 import {

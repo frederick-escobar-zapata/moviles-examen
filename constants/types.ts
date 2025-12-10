@@ -1,4 +1,5 @@
-// Defino la interfaz Task que usaré en toda la app para representar una tarea.
+// Aquí defino la interfaz Task que uso en toda mi app
+// para representar una tarea con su estado, foto y ubicación.
 export interface Task {
   // Identificador único de la tarea
   id: string;

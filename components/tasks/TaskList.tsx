@@ -1,3 +1,5 @@
+// En este componente pinto la lista de tareas reutilizando `TaskItem`
+// y conecto cada item con las acciones que manejo desde la pantalla Home.
 import TaskItem from '@/components/task-item';
 import type { Task } from '@/constants/types';
 import React from 'react';

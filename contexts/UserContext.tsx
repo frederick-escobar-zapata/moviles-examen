@@ -1,7 +1,10 @@
+// En este contexto manejo el estado global de autenticación de mi app.
+// Aquí guardo el usuario y el token, los persisto en AsyncStorage
+// y expongo helpers como `isLoggedIn` y `logout` para el resto de las pantallas.
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
-// Usuario que viene desde la API Hono
+// Usuario que viene desde mi API Hono
 export interface User {
   id: string;
   email: string;

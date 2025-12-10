@@ -1,3 +1,5 @@
+// En este componente construyo el input para crear nuevas tareas.
+// Aquí permito escribir el título y también elegir o tomar una foto.
 import IconButton from '@/components/ui/IconButton';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';

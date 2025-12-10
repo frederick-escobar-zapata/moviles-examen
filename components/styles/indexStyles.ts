@@ -1,3 +1,5 @@
+// En este archivo centralizo los estilos que uso en las pantallas
+// de login y registro para que se vean coherentes entre sí.
 import { Dimensions, StyleSheet } from "react-native";
 const { width } = Dimensions.get("window");
 

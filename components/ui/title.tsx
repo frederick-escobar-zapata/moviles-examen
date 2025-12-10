@@ -1,4 +1,5 @@
-// Este componente Title es un Text reutilizable con estilos de encabezado.
+// En este componente defino un título reutilizable para las pantallas
+// así mantengo una tipografía y estilo de encabezado consistente.
 import { ReactNode } from "react";
 import { StyleProp, StyleSheet, Text, TextStyle } from "react-native";
 

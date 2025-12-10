@@ -1,4 +1,6 @@
-// servicios/api.tsx
+// En este archivo centralizo todas las llamadas HTTP de mi app.
+// Aquí configuro Axios, adjunto automáticamente el token y conecto el login,
+// el registro, el CRUD de tareas y la subida de imágenes contra el backend.
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { Platform } from "react-native";
