@@ -277,3 +277,66 @@ En la nueva pantalla `app/(tabs)/home.tsx`:
 - Gonzalo Croft         / seccion 51      
 - Bastian Ceron         / seccion 50
 - Frederick Escobar     / seccion 50
+
+
+
+## EXAMEN TRANSVERSAL  
+
+### Manejo de imágenes con backend
+
+- Al crear una tarea, si hay una foto seleccionada:
+  - Construyo un `FormData` en `uploadImage` y envío el archivo a `POST /images`.
+  - El backend responde con una ruta relativa (`data.url`) y yo la convierto en URL absoluta usando `API_URL + data.url`.
+  - Guardo esa URL en el campo `photoUri` de la tarea.
+- En la lista (`TaskList` + `TaskItem`):
+  - Si una tarea tiene `photoUri`, muestro un icono de imagen.
+  - Al tocar el icono, abro un **modal** en `home.tsx` donde:
+    - Renderizo la imagen desde la URL devuelta por Hono.
+    - Muestro también la **URL como texto**, para evidenciar que viene del backend.
+
+### Ubicación con Google Maps
+
+- Cuando creo una tarea intento obtener la ubicación actual del dispositivo.
+- Si la tarea tiene coordenadas, muestro un icono de ubicación.
+- Al presionar ese icono, abro Google Maps en la posición guardada usando un `Linking.openURL` con una URL del tipo:
+  - `https://www.google.com/maps?q=<latitude>,<longitude>`.
+
+### Resumen técnico Examen transversal
+
+- Autenticación y registro contra backend remoto (Hono API).
+- Token guardado en `AsyncStorage` y contexto global.
+- Rutas protegidas: las tabs solo se muestran si el usuario está autenticado.
+- Todo List completamente sincronizado con el servidor (sin almacenamiento local como fuente de verdad).
+- Subida de imágenes con `multipart/form-data` y uso de la URL que entrega el servidor.
+- Manejo de ubicación y apertura en Google Maps desde cada tarea.
+
+### Explicación personal de lo que hicimos en la Evaluación 3
+
+En esta tercera evaluación llevamos la aplicación desde un manejo local de datos a trabajar completamente contra un backend real. Nuestro objetivo fue que el listado de tareas, las imágenes y la ubicación quedaran siempre sincronizados con la API en Hono, usando el token de autenticación para asociar todo al usuario que está logueado.
+
+Para ordenar la lógica de las tareas, decidimos concentrar todo en un custom hook llamado `useTodos`. En este hook mantenemos el estado de las tareas, el estado de carga y los posibles errores. También definimos las funciones que necesitamos desde la interfaz: `addTask`, `toggleTask`, `removeTask` y `reload`. De esta manera, en la pantalla `home.tsx` solo consumimos el hook y la vista queda mucho más limpia, enfocada en cómo mostrar la información y no en los detalles de red.
+
+Internamente, el hook se conecta directamente con la API que definimos en `app/servicios/api.tsx`. Cuando llamamos a `reload`, ejecutamos `getTodos()` contra el backend y luego transformamos la respuesta al tipo `Task` que usamos en toda la app, usando la función `mapApiTodoToTask`. Así mantenemos una sola estructura de datos en el resto del proyecto, independiente de cómo venga exactamente la respuesta del servidor.
+
+Para crear una tarea, en `addTask` primero validamos el título y, si hay una foto, llamamos a `uploadImage` para subir la imagen al backend. Con la URL que nos devuelve el servidor llamamos a `createTodo`, guardamos la nueva tarea y la agregamos al estado local para que aparezca inmediatamente en la lista. Cuando queremos marcar una tarea como completada o desmarcarla, usamos `toggleTask`, que llama a `updateTodo` en el backend y después actualiza solo esa tarea en el estado. Finalmente, con `removeTask` llamamos a `deleteTodo` y filtramos la tarea eliminada del arreglo local.
+
+Con esta organización sentimos que la aplicación quedó más escalable y fácil de mantener. Si en el futuro cambiara la API o la forma de guardar los datos, solo tendríamos que ajustar la capa de servicios y el hook `useTodos`, sin tocar la lógica de las pantallas.
+
+## Enlaces de video para demostracion en WEB
+
+- https://youtube.com/shorts/03285MiVlQ8?feature=share
+
+## Enlaces de video para demostracion en EXPO
+
+- https://youtube.com/shorts/sXgLPdpyc-U?feature=share
+
+## Enlaces para la respuestas 
+
+- https://www.canva.com/design/DAG8KvhUk1Q/vCn3xebxLozUlP-0drOCiw/edit?utm_content=DAG8KvhUk1Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+
+## integrantes
+
+- Gonzalo Croft         / seccion 51      
+- Bastian Ceron         / seccion 50
+- Frederick Escobar     / seccion 50
